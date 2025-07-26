@@ -19,10 +19,19 @@ public class Apurador {
     	List<Integer> ordemPrismas = boletim.getOrdemPrismas();
 		
     	tempoProva = boletim.getTempo(Prisma.CHEGADA);
+    	
+    	// VERIFICA SE O ATLETA NÃO REGISTROU CHEGADA
+    	
     	if(tempoProva == null)
     		throw new DNFException("Atleta não registrou chegada");
-   		if(tempoProva.compareTo(this.tempoMaximo) > 0)
+
+    	// VERIFICA SE O ATLETA ESTOUROU O TEMPO DA CORRIDA
+    	
+    	if(tempoProva.compareTo(this.tempoMaximo) > 0)
    			throw new DNFException("O atleta finalizou a prova, após o tempo limite");
+   		
+   		// VERIFICA A ORDEM DOS PRISMAS
+   		
     	for(int iCont = 0; iCont < ordemPrismas.size() - 1; iCont++) {
     		Duration anterior = boletim.getTempo(ordemPrismas.get(iCont));
     		Duration atual = boletim.getTempo(ordemPrismas.get(iCont+1));
@@ -30,12 +39,22 @@ public class Apurador {
     			if(anterior.compareTo(atual) > 0)
     				throw new DNFException("Atleta registrou prisma fora da ordem");
     	}
+    	
+    	
+    	// VERIFICA SE TODOS OS PRISMAS FORAM REGISTRADOS
+    	
        	for(int iCont = 0; iCont < ordemPrismas.size() - 1; iCont++) {
        		Duration tempo = boletim.getTempo(ordemPrismas.get(iCont));
        		if(ordemPrismas.get(iCont) != Prisma.CHEGADA && tempo == null)
        			throw new DNFException("Atleta não registrou um dos prismas.");
        	}	
-    	tempoProva = tempoProva.plus(Duration.ofMinutes(boletim.getMinutosAtraso()));
+       	
+       	
+    	// SOMA O ATRASO DO ATLETA
+       	
+       	tempoProva = tempoProva.plus(Duration.ofMinutes(boletim.getMinutosAtraso()));
     	return tempoProva;
+    	
+    	
 	}	
 }
