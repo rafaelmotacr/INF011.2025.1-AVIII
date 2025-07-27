@@ -16,8 +16,7 @@ public class Apurador {
 	
 	public Duration apurar(BoletimProva boletim) throws DNFException, AtividadeNaoPermitidaException {
 		Duration tempoProva = Duration.ZERO;
-    	List<Integer> ordemPrismas = boletim.getOrdemPrismas();
-		
+		List<Integer> ordemPrismas = boletim.getOrdemPrismas();
     	tempoProva = boletim.getTempo(Prisma.CHEGADA);
     	
     	// VERIFICA SE O ATLETA NÃO REGISTROU CHEGADA
@@ -54,7 +53,5 @@ public class Apurador {
        	
        	tempoProva = tempoProva.plus(Duration.ofMinutes(boletim.getMinutosAtraso()));
     	return tempoProva;
-    	
-    	
 	}	
 }

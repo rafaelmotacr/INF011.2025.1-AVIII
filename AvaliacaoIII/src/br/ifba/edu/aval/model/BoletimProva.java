@@ -5,8 +5,8 @@ import java.util.List;
 
 import br.ifba.edu.aval.exception.AtividadeNaoPermitidaException;
 import br.ifba.edu.aval1.prototype.ListaPassagens;
-import br.ifba.edu.aval1.state.FaseDaCorrida;
-import br.ifba.edu.aval1.state.PreProva;
+import br.ifba.edu.aval3.state.FaseDaCorrida;
+import br.ifba.edu.aval3.state.PreProva;
 
 public class BoletimProva {
 

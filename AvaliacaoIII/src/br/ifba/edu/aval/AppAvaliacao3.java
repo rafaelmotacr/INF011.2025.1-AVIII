@@ -4,15 +4,15 @@ import java.time.Duration;
 
 import br.ifba.edu.aval.exception.AtividadeNaoPermitidaException;
 import br.ifba.edu.aval.exception.DNFException;
-import br.ifba.edu.aval.model.Apurador;
+import br.ifba.edu.aval.model.ApuradorNovo;
 import br.ifba.edu.aval.model.BoletimProva;
 
 public class AppAvaliacao3 extends AppAvaliacaoBase{
 	
-	private Apurador apurador;
+	private ApuradorNovo apurador;
 	
 	public AppAvaliacao3() {
-		this.apurador = new Apurador(Duration.ofMinutes(120));
+		this.apurador = new ApuradorNovo(Duration.ofMinutes(120));
 	}
 	
 	public void aval() {

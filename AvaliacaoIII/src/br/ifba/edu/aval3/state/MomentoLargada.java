@@ -1,4 +1,4 @@
-package br.ifba.edu.aval1.state;
+package br.ifba.edu.aval3.state;
 
 import br.ifba.edu.aval.exception.AtividadeNaoPermitidaException;
 import br.ifba.edu.aval.model.BoletimProva;
