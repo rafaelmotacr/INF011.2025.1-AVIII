@@ -5,22 +5,26 @@ import br.ifba.edu.aval.exception.DNFException;
 public abstract class AbstractRegraApuracao implements RegraApuracao {
 
     protected RegraApuracao proxima;
-    protected ApuracaoContexto apuracaoContexto;
+    protected ContextoOperacaoDTO contexto;
 
-    public AbstractRegraApuracao(ApuracaoContexto apuracaoContexto) {
+    public AbstractRegraApuracao(ContextoOperacaoDTO contexto) {
 		super();
-		this.apuracaoContexto = apuracaoContexto;
+		this.contexto = contexto;
 	}
 
 	@Override
     public void setProxima(RegraApuracao proxima) {
         this.proxima = proxima;
     }
-
-    protected void apurarProxima() throws DNFException {
-        if (proxima != null) {
-            proxima.apurar();
-        }
-    }
+	
+	@Override
+	public final void apurar() throws DNFException {
+		verificarRegra();
+		if (proxima != null) {
+			proxima.apurar();
+		}
+	}
+	
+	protected abstract void verificarRegra() throws DNFException;
 	
 }

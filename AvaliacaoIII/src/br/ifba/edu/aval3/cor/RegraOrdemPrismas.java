@@ -7,21 +7,21 @@ import br.ifba.edu.aval.exception.DNFException;
 
 public class RegraOrdemPrismas extends AbstractRegraApuracao{
 
-	public RegraOrdemPrismas(ApuracaoContexto apuracaoContexto) {
-		super(apuracaoContexto);
+	public RegraOrdemPrismas(ContextoOperacaoDTO contexto) {
+		super(contexto);
 	}
 
 	@Override
-	public void apurar() throws DNFException {
-		List<Integer> ordemPrismas = this.apuracaoContexto.getBoletim().getOrdemPrismas();
-    	for(int iCont = 0; iCont < ordemPrismas.size() - 1; iCont++) {
-    		Duration anterior = this.apuracaoContexto.getBoletim().getTempo(ordemPrismas.get(iCont));
-    		Duration atual = this.apuracaoContexto.getBoletim().getTempo(ordemPrismas.get(iCont+1));
+	protected void verificarRegra() throws DNFException {
+		List<Integer> ordemPrismas = this.contexto.boletim().getOrdemPrismas();
+    	for(int iCont = 0; iCont < ordemPrismas.size() - 1; iCont ++) {
+    		Duration anterior = this.contexto.boletim().getTempo(ordemPrismas.get(iCont));
+    		Duration atual = this.contexto.boletim().getTempo(ordemPrismas.get(iCont + 1));
     		if(anterior != null && atual != null) 
     			if(anterior.compareTo(atual) > 0)
     				throw new DNFException("Atleta registrou prisma fora da ordem");
     	}
-    	apurarProxima();
+		
 	}
 
 }

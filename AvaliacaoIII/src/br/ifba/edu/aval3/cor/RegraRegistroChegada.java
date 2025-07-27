@@ -7,16 +7,15 @@ import br.ifba.edu.aval.model.Prisma;
 
 public class RegraRegistroChegada extends AbstractRegraApuracao {
 
-	public RegraRegistroChegada(ApuracaoContexto apuracaoContexto) {
-		super(apuracaoContexto);
+	public RegraRegistroChegada(ContextoOperacaoDTO contexto) {
+		super(contexto);
 	}
-
+	
 	@Override
-	public void apurar() throws DNFException {
-		Duration tempoProva = apuracaoContexto.getBoletim().getTempo(Prisma.CHEGADA);
+	protected void verificarRegra() throws DNFException {
+		Duration tempoProva = contexto.boletim().getTempo(Prisma.CHEGADA);
     	if(tempoProva == null)
-    		throw new DNFException("Atleta não registrou chegada");
-    	apurarProxima();
+    		throw new DNFException("Atleta não registrou chegada");	
 	}
 
 }

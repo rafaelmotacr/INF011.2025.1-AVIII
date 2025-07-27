@@ -22,7 +22,6 @@ public class PreProva extends AbstractFaseDaCorrida {
 	@Override
 	public void apresentarPraLargada() throws AtividadeNaoPermitidaException {
 		this.boletimProva.setFase(new MomentoLargada(this.boletimProva));
-
 	}
 
 }

@@ -4,7 +4,7 @@ import java.time.Duration;
 
 import br.ifba.edu.aval.exception.AtividadeNaoPermitidaException;
 import br.ifba.edu.aval.exception.DNFException;
-import br.ifba.edu.aval3.cor.ApuracaoContexto;
+import br.ifba.edu.aval3.cor.ContextoOperacaoDTO;
 import br.ifba.edu.aval3.cor.RegraApuracao;
 import br.ifba.edu.aval3.cor.RegraOrdemPrismas;
 import br.ifba.edu.aval3.cor.RegraRegistroChegada;
@@ -23,7 +23,7 @@ public class ApuradorNovo {
 		Duration tempoProva = Duration.ZERO;
 		tempoProva = boletim.getTempo(Prisma.CHEGADA);
 		
-    	ApuracaoContexto contexto = new ApuracaoContexto(tempoMaximo, boletim);
+    	ContextoOperacaoDTO contexto = new ContextoOperacaoDTO(tempoMaximo, boletim);
     	
     	RegraApuracao regra1 = new RegraRegistroChegada(contexto);
     	RegraApuracao regra2 = new RegraTempoLimite(contexto);
