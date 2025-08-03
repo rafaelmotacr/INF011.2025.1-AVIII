@@ -1,6 +1,6 @@
 # AVALIAÇÃO FINAL DA DISCIPLINA DE PADRÕES DE PROJETO
 
-Equipe: Alexandre Gonçalves Tuvo Matheus Conceição Bonfim e Rafael Mota Correia.
+Equipe: Alexandre Gonçalves Tuvo, Matheus Conceição Bonfim e Rafael Mota Correia.
 ### Questão 1: State 
 
 #### **Participantes do Padrão:**
